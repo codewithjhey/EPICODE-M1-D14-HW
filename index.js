@@ -17,5 +17,9 @@ const createCells = function () {
 }
 
 function generateRandomNumber() {
-  return Math.floor(Math.random() * 76)
+  const randomNo = Math.floor(Math.random() * 76) + 1
+
+  const cell = document.querySelectorAll(".cell")
+  console.log(cell[randomNo - 1])
+  cell[randomNo - 1].style.backgroundColor = "blue"
 }
