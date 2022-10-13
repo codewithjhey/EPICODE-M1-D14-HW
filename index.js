@@ -1,5 +1,9 @@
 const bingoArray = []
 
+window.onload = function () {
+  createCells()
+}
+
 const createCells = function () {
   const bingoNode = document.getElementById("bingo")
   for (let i = 0; i < 76; i++) {
@@ -12,6 +16,6 @@ const createCells = function () {
   }
 }
 
-window.onload = function () {
-  createCells()
+function generateRandomNumber() {
+  return Math.floor(Math.random() * 76)
 }

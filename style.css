@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  background-color: aqua;
+}
+
+#container {
+  max-width: 768px;
+  background-color: rgb(122, 105, 98);
+  margin-inline: auto;
+  margin-block: 4rem;
+}
+
+.cell {
+  display: inline-block;
+  width: 14.2%;
+  height: 40px;
+  aspect-ratio: 1/1;
+  padding: 2.3rem;
+  border: 1px solid black;
+  border-radius: 6px;
+  color: white;
+}
+
+.cell h3 {
+  text-align: center;
+  margin: 0;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
