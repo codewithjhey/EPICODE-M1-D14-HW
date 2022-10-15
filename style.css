@@ -2,80 +2,68 @@
 
 body {
   margin: 0;
-  background-color: rgb(232, 241, 241);
-  color: #f6d4c5;
   font-family: "Outfit", sans-serif;
 }
 
-#container {
-  max-width: 1280px;
-  background-color: rgb(122, 105, 98);
-  margin-inline: auto;
-  margin-block: 4rem;
-  border-radius: 3px;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-left: 20px;
+}
+
+.board {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mainboard {
+  width: 798px;
+}
+.userboard {
+  width: 504px;
+  margin-bottom: 24px;
+}
+
+.h-title {
+  text-align: center;
 }
 
 .cell {
-  display: inline-block;
-  width: 10px;
-  height: 1px;
-  aspect-ratio: 1/1;
-  padding: 2.3rem;
-  border: 1px solid black;
-  border-radius: 4px;
-  color: black;
-  margin-bottom: 2px;
-  margin-left: 5px;
-}
-
-.cell h3 {
-  text-align: center;
-  margin: 0;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 20px;
-  font-weight: 300;
-}
-
-.random-number {
-  width: 150px;
+  display: flex;
+  width: 40px;
   height: 40px;
-  display: block;
-  margin-inline: auto;
-  border: 1px solid black;
-  border-radius: 4px;
-  margin-bottom: 2rem;
-}
-
-h1 {
-  text-align: center;
-}
-
-#user-container {
-  max-width: 1200px;
-  margin-inline: auto;
-  margin-block: 4rem;
-  border-radius: 10px;
-  background-color: brown;
-}
-
-.box {
-  display: inline-block;
-  width: 2%;
-  height: 1px;
-  aspect-ratio: 1/1;
-  padding: 2.3rem;
+  justify-content: center;
+  align-items: center;
   border: 1px solid black;
 }
 
-.box h3 {
+.btn {
+  width: 20%;
+  margin-top: 20px;
+  padding: 5px;
+  background-color: beige;
+  border: none;
+  margin-bottom: 20px;
+}
+
+.inputfield {
+  width: 19%;
+  margin-top: 20px;
+  padding: 5px;
+}
+
+input :focus {
+  outline: none;
+}
+
+.highlight {
+  background-color: rgb(211, 99, 62);
+}
+
+h5 {
   text-align: center;
-  margin: 0;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 20px;
-  font-weight: 300;
-  color: black;
 }

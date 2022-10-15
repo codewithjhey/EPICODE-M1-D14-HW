@@ -8,19 +8,34 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="container">
-      <h1>BINGO Board</h1>
-      <div id="bingo"></div>
-    </div>
+    <div class="container">
+      <h1 class="h-title">BINGO Board</h1>
+      <div class="mainBoard board"></div>
 
-    <button class="random-number" onclick="generateRandomNumber()">
-      Generate Random Number
-    </button>
-    <input id="generatedNumber" type="text" value="#" />
+      <input
+        type="button"
+        class="btn"
+        id="Rdbtn"
+        value="Generate Random Number"
+        onclick="generateRandomNumber()"
+      />
 
-    <div id="user-container">
-      <div id="userBoard"></div>
+      <input
+        type="number"
+        id="usersNumber"
+        class="inputfield"
+        value="1"
+        placeholder="Number of users"
+      />
+
+      <input
+        type="button"
+        id="userbuttons"
+        class="btn"
+        value="Generate user boards"
+      />
     </div>
+    <h5 id="RandNumb"></h5>
     <script src="./index.js"></script>
   </body>
 </html>

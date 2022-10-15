@@ -1,38 +1,68 @@
-const bingoArray = []
+//create an arr in range [1...76]
 
-window.onload = function () {
-  createCells()
-  createUserBoard()
+const fillArray = function () {
+  const arr = []
+  for (let i = 0; i < 76; i++) {
+    arr.push(i + 1)
+  }
+  return arr
+}
+
+//generate rand index in the range of our arr.length
+
+const getRandomNum = function (range) {
+  const randIndex = Math.floor(Math.random() * range.length)
+  const random = range.splice(randIndex, 1)[0]
+  return random
 }
 
 const createCells = function () {
-  const bingoNode = document.getElementById("bingo")
+  const board = document.querySelector(".mainBoard")
   for (let i = 0; i < 76; i++) {
-    const bingoCellNode = document.createElement("div")
-    bingoCellNode.className = "cell"
-    const h3 = document.createElement("h3")
-    h3.innerText = i + 1
-    bingoCellNode.appendChild(h3)
-    bingoNode.appendChild(bingoCellNode)
+    board.innerHTML += `<div class="cell">${i + 1}</div`
   }
 }
 
-function generateRandomNumber() {
-  const randomNo = Math.floor(Math.random() * 76) + 1
+const generateRandomNumber = function (range) {
+  const random = getRandomNum(range)
+  const randNumbDiv = document.getElementById("RandNumb")
+  randNumbDiv.innerText = "Number: " + random
+  const cells = document.querySelectorAll(".mainBoard .cell")
+  cells[random - 1].classList.add("highlight")
 
-  const cell = document.querySelectorAll(".cell")
-  console.log(cell[randomNo - 1])
-  cell[randomNo - 1].style.backgroundColor = "blue"
+  const userCells = document.querySelectorAll(".userboard .cell")
+  userCells.forEach((cell) => {
+    if (parseInt(cell.innerText === random)) {
+      cell.classList.add("highlight")
+    }
+  })
 }
 
-const createUserBoard = function () {
-  const userNode = document.getElementById("userBoard")
-  for (let i = 0; i < 24; i++) {
-    const userBoardNode = document.createElement("div")
-    userBoardNode.className = "box"
-    const h3 = document.createElement("h3")
-    h3.innerText = i + 1
-    userBoardNode.appendChild(h3)
-    userNode.appendChild(userBoardNode)
+const generateUserBoards = function () {
+  const usersNumber = document.getElementById("usersNumber").value
+  const container = document.querySelector(".container")
+  if (parseInt(usersNumber) > 0) {
+    for (let i = 0; i < parseInt(usersNumber); i++) {
+      const range = fillArray()
+      const board = document.createElement("div")
+      board.className = "board userboard"
+      for (let i = 0; i < 24; i++) {
+        const random = getRandomNum(range)
+        board.innerHTML += `<div class='cell'>${random}</div>`
+      }
+      container.appendChild(board)
+    }
   }
 }
+
+window.onload = function () {
+  createCells()
+  const rdBtn = document.getElementById("Rdbtn")
+  const range = fillArray()
+  rdBtn.addEventListener("click", function () {
+    generateRandomNumber(range)
+  })
+}
+
+const userButtons = document.getElementById("userbuttons")
+userButtons.onclick = generateUserBoards
